@@ -15,11 +15,10 @@ public class ContractFileManager {
                 pw.printf("SALE|%s|%s|%s|%.2f|%.2f|%.2f|%.2f|%s|%.2f%n", sc.getDate(), sc.getCustomerName(),sc.getEmail(),
                 sc.getVehicle().toCSV(),sc.getSalesTaxAmount(),sc.getRecordingFee(),sc.getProcessingFee(),
                         sc.getTotalPrice(),sc.isFinanceOption() ? "Yes" : "No", sc.getMonthlyPayment());
-            }else if(contract instanceof  LeaseContract lc){
-                
+            }else if(contract instanceof LeaseContract lc){
+                pw.printf("Lease|%s|%s|%s|%s|%.2f|%.2f|%.2f|%.2f%n", lc.getDate(),lc.getCustomerName(), lc.getEmail(),
+                        lc.getVehicle().toCSV(), lc.getExpectedEndingValue(),lc.getLeaseFee(), lc.getTotalPrice(),lc.getMonthlyPayment());
             }
-
-
             System.out.println("Contract saved successfully to " + File_Name);
         } catch (IOException e) {
             e.printStackTrace();
