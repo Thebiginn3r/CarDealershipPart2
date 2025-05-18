@@ -85,6 +85,11 @@ public class Vehicle {
         this.price = price;
     }
 
+    public String toCSV(){
+        return String.format("%s|%d|%s|%s|%s|%s|%d|%.2f", vin, year,make, model, vehicleType,
+                color, odometer,price);
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +
