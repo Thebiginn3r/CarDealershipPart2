@@ -16,7 +16,7 @@ public class SalesContract extends Contract{
 
 
     public double getSalesTaxAmount() {
-        return salesTaxAmount;
+        return getVehicle().getPrice()*.05;
     }
 
     public void setSalesTaxAmount(double salesTaxAmount) {
@@ -24,7 +24,7 @@ public class SalesContract extends Contract{
     }
 
     public double getRecordingFee() {
-        return recordingFee;
+        return 100.0;
     }
 
     public void setRecordingFee(double recordingFee) {
@@ -32,7 +32,7 @@ public class SalesContract extends Contract{
     }
 
     public double getProcessingFee() {
-        return processingFee;
+        return getVehicle().getPrice()< 10000 ? 295.0 : 495;
     }
 
     public void setProcessingFee(double processingFee) {

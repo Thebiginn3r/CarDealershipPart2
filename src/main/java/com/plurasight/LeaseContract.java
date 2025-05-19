@@ -12,7 +12,7 @@ public class LeaseContract extends Contract{
 
 
     public double getExpectedEndingValue() {
-        return expectedEndingValue;
+        return getVehicle().getPrice() * .5;
     }
 
     public void setExpectedEndingValue(double expectedEndingValue) {
@@ -20,7 +20,7 @@ public class LeaseContract extends Contract{
     }
 
     public double getLeaseFee() {
-        return leaseFee;
+        return getVehicle().getPrice() * .07;
     }
 
     public void setLeaseFee(double leaseFee) {
