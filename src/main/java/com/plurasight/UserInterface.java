@@ -23,8 +23,9 @@ public class UserInterface {
             System.out.println("5. Get vehicles by mileage");
             System.out.println("6. Get vehicles by type");
             System.out.println("7. Get all vehicles");
-            System.out.println("8. Add vehicle");
-            System.out.println("9. Remove vehicle");
+            System.out.println("8. Sell or Lease Vehicle");
+            System.out.println("9. Add vehicle");
+            System.out.println("10. Remove vehicle");
             System.out.println("99. Quit");
 
             System.out.print("Enter your choice: ");
@@ -53,9 +54,12 @@ public class UserInterface {
                     processGetAllVehiclesRequest();
                     break;
                 case "8":
-                    processAddVehicleRequest();
+                    sellOrLeaseVehicle();
                     break;
                 case "9":
+                    processAddVehicleRequest();
+                    break;
+                case "10":
                     processRemoveVehicleRequest();
                     break;
                 case "99":
@@ -161,11 +165,11 @@ public class UserInterface {
 
     public void processRemoveVehicleRequest() {
         System.out.print("Enter the VIN of the vehicle you wish to remove: ");
-        int vin = scanner.nextInt();
+        String vin = scanner.nextLine();
 
         boolean vehicleRemoved = false;
         for (Vehicle vehicle : dealership.getAllVehicles()) {
-            if (vehicle.getVin() == vin) {
+            if (vehicle.getVin().equalsIgnoreCase(vin)) {
                 dealership.removeVehicle(vehicle);
                 System.out.println("Vehicle removed successfully!");
                 vehicleRemoved = true;
@@ -191,5 +195,18 @@ public class UserInterface {
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle.toString());
         }
+    }
+
+
+
+    public void sellOrLeaseVehicle(){
+        System.out.println("Enter VIN of the vehicle: ");
+        String vin = scanner.nextLine();
+        Vehicle selectedVehicle = dealership.findVehicleByVin(vin);
+        if(selectedVehicle == null) {
+            System.out.println("Vehicle not found");
+            return;
+        }
+
     }
 }

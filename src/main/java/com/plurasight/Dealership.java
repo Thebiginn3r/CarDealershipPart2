@@ -100,6 +100,16 @@ public class Dealership {
         return matchingVehicles;
     }
 
+    public Vehicle findVehicleByVin(String vin) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin().equalsIgnoreCase(vin)) {
+                return vehicle;
+            }
+        }
+        return null;
+    }
+
+
     public List<Vehicle> getAllVehicles() {
         return inventory;
     }
