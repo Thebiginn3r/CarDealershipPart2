@@ -19,7 +19,7 @@ public class DealershipFileManager {
                     String phone = fields[2];
                     dealership = new Dealership(name, address, phone);
                 } else { // vehicle info
-                    int vin = Integer.parseInt(fields[0]);
+                    String vin = fields[0];
                     int year = Integer.parseInt(fields[1]);
                     String make = fields[2];
                     String model = fields[3];

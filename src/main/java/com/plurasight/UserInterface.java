@@ -129,8 +129,8 @@ public class UserInterface {
 
     public void processAddVehicleRequest() {
         System.out.print("Enter vehicle vin: ");
-        int vin = scanner.nextInt();
-        scanner.nextLine();
+        String vin = scanner.nextLine();
+        //System.out.println();
 
         System.out.print("Enter vehicle make: ");
         String make = scanner.nextLine();
@@ -211,7 +211,7 @@ public class UserInterface {
         }
 
         if (selectedVehicle.getYear() < 2022) {
-            System.out.println("Vehicle is too old to be leased. Continuing with sale only.");
+            System.out.println("Vehicle is too old to be leased. Continue with sale only.");
         }
         System.out.print("Do yo want to (1) sell or (2) Lease?: ");
         String option = scanner.nextLine();
@@ -224,7 +224,7 @@ public class UserInterface {
 
         Contract contract = null;
 
-        if (option.equals("1")) {
+        if (option.equals("1") || selectedVehicle.getYear() < 2022) {
             System.out.println("Finance? (yes/no): ");
             boolean finance = scanner.nextLine().equalsIgnoreCase("yes");
             contract = new SalesContract(name, date, email, selectedVehicle, finance);
