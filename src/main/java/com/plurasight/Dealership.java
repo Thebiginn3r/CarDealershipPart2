@@ -109,6 +109,16 @@ public class Dealership {
         return null;
     }
 
+    public void removeVehicleNyVin(String vin){
+        Vehicle vehicle = findVehicleByVin(vin);
+        if (vehicle != null){
+            removeVehicle(vehicle);
+            System.out.println("Vehicle removed from inventory");
+        }else {
+            System.out.println("Vehicle not found");
+        }
+    }
+
 
     public List<Vehicle> getAllVehicles() {
         return inventory;
